@@ -1,0 +1,55 @@
+<div class="row container">
+    <div class="col-md-6">
+        <form [formGroup]="studForm" (ngSubmit)="postData();">
+            <div class="form-group">
+                <label>Student Id</label>
+                <input type="number" class="form-control" id="exampleInputId" formControlName="Identity"
+                    placeholder="Enter student Id">
+            </div>
+            <div class="form-group">
+                <label>Student Name</label>
+                <input type="text" class="form-control" id="exampleInputStudName" formControlName="Name"
+                    placeholder="Enter Student Name">
+            </div>
+            <div class="form-group">
+                <label>Student City</label>
+                <input type="text" class="form-control" id="exampleInputcity" formControlName="city"
+                    placeholder="Enter City name">
+            </div>
+            <div class="form-group">
+                <label>Student State</label>
+                <input type="text" class="form-control" id="exampleInputstate" formControlName="state"
+                    placeholder="Enter State name">
+            </div>
+            <div class="form-group">
+                <label>Student Country</label>
+                <input type="text" class="form-control" id="exampleInputc" formControlName="country"
+                    placeholder="Enter Country Name">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" formControlName="passd"
+                 placeholder="Password">
+            </div>
+            <!-- <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="terms"
+                 id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+           
+        </form>
+
+         
+  </div>
+</div>
+
+
+<h3>Display form details below</h3>
+<!-- <ul><li> Result : {{}}</li> </ul> -->
+    <div *ngFor="let item of result | keyvalue">
+      Key: <b>{{item.key}}</b> and Value: <b>{{item.value}}</b>
+  
+      </div>  
