@@ -1,11 +1,6 @@
 <div class="row container">
     <div class="col-md-6">
-        <form [formGroup]="studForm" (ngSubmit)="postData();">
-            <div class="form-group">
-                <label>Student Id</label>
-                <input type="number" class="form-control" id="exampleInputId" formControlName="Identity"
-                    placeholder="Enter student Id">
-            </div>
+        <form [formGroup]="studForm" (ngSubmit)="updateStud();">
             <div class="form-group">
                 <label>Student Name</label>
                 <input type="text" class="form-control" id="exampleInputStudName" formControlName="Name"
@@ -35,14 +30,16 @@
                 <input type="checkbox" class="form-check-input" formControlName="terms"
                  id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                (ngSubmit)="postData();"
             </div> -->
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                    &nbsp; &nbsp;
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
            
         </form>
-
-         
+        
   </div>
 </div>
 
@@ -51,5 +48,6 @@
 <!-- <ul><li> Result : {{}}</li> </ul> -->
     <div *ngFor="let item of result | keyvalue">
       Key: <b>{{item.key}}</b> and Value: <b>{{item.value}}</b>
-  
       </div>  
+     
+   
