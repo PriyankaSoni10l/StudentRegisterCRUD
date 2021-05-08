@@ -37,6 +37,7 @@ export class StudentFormComponent implements OnInit {
   })}
   
   ngOnInit(): void {
+    console.log('im here')
    console.log(this.ActiveRoute.snapshot.params.id);
    this.studentService.getCurrentData(this.ActiveRoute.snapshot.params.id).subscribe((result) => {
     this.studForm =new FormGroup({

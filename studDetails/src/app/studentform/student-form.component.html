@@ -1,6 +1,6 @@
 <div class="row container">
     <div class="col-md-6">
-        <form [formGroup]="studForm" (ngSubmit)="updateStud();">
+        <form [formGroup]="studForm" >
             <div class="form-group">
                 <label>Student Name</label>
                 <input type="text" class="form-control" id="exampleInputStudName" formControlName="Name"
@@ -31,12 +31,16 @@
                  id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 (ngSubmit)="postData();"
+                (ngSubmit)="updateStud();"
             </div> -->
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
+            <span class="form-group">
+                <button *ngIf="!ActiveRoute.snapshot.params.id" type="submit" class="btn btn-primary" (click)="postData()">Submit</button>
                     &nbsp; &nbsp;
-                <button type="submit" class="btn btn-primary">Update</button>
-            </div>
+            </span>
+            <span *ngIf="ActiveRoute.snapshot.params.id" class="form-group">
+                <button type="submit" class="btn btn-primary" (click)="updateStud()">Update</button>
+            </span>
+            
            
         </form>
         
