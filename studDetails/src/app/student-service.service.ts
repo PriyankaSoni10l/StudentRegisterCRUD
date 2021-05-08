@@ -26,7 +26,7 @@ export class StudentServiceService {
     updateStud(id,formData){
       console.log("Updatestud called");
       console.log(formData);
-      return this.Http.put(`${this.url}/${id}`,formData);
+      return this.Http.post(`${this.url}/${id}`,formData);
     }
 
     deleteStud(deleteStudentid:string){

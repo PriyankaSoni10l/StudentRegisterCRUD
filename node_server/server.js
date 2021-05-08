@@ -64,7 +64,6 @@ app.get('/',function(req,res){
  })
 
  app.post('/update/:id',function(req,res){
-   console.log("Update function called");
   let sid=req.params.id;
   let sName=req.body.Name;
   let scity=req.body.city;
@@ -80,7 +79,6 @@ app.get('/',function(req,res){
           res.redirect('FormData');
       });
   });
-
 });
 
  app.delete('/deleteStud/:id', (req, res, next)=>{  
