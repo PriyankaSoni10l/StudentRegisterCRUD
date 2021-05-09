@@ -24,13 +24,11 @@ export class StudentServiceService {
     }
 
     updateStud(id,formData){
-      console.log("Updatestud called");
       console.log(formData);
       return this.Http.post(`${this.url}/${id}`,formData);
     }
 
     deleteStud(deleteStudentid:string){
-      console.log("deleteStud called");
       return this.Http.delete<any>('http://localhost:3000/deleteStud/'+deleteStudentid)
       .subscribe(()=>{  
         console.log("Deleted");  

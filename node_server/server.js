@@ -12,7 +12,7 @@ var conn=mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"",
-    database:"studentDB"
+    database:"studentdb"
 })
 
 app.use(bodyParser.urlencoded({extended:false}));

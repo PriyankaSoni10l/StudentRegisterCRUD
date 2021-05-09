@@ -5,33 +5,41 @@
         (ngModelChange)="Search()" placeholder="Enter the Student Name to Search">
 </nav>
 
-<button class="btn btn-primary" (click)="retriveStudentData();">Retrive Student Data</button>
-<br>
-<table table border="1">
+<button class="btn btn-primary ; rounded-pill" (click)="retriveStudentData();">Retrive Student Data</button>
+<br/> <br/>
+<table class="table table-bordered ">
     <thead>
     <tr>
        
         <th (click)="sort('id')">Student Id<i class='fa fa-fw fa-sort'></i></th>  
-        <th>Student Name<i class='fa fa-fw fa-sort'></i></th>
+        <th (click)="sort('stud_name')">Student Name<i class='fa fa-fw fa-sort'></i></th>
         <th>Student City</th>
+        <th>Student State</th>
         <th>Student Country</th>
-        <th>Student Age</th>
     </tr>
     </thead>
-    <tr *ngFor="let ret of fetch | orderBy: key: reverse">
+    <tbody>
+    <tr *ngFor="let ret of fetch | orderBy: key: reverse | paginate: {id : 'listing_pagination',
+        itemsPerPage:5,
+        currentPage:page,
+        totalItems : totalRecords}">
         <td>{{ret.stud_id}} </td> 
         <td>{{ret.stud_name}}</td>
         <td>{{ret.stud_city}}</td>
         <td>{{ret.stud_state}}</td>
         <td>{{ret.stud_country}}</td>
-        <td>{{ret.stud_age}}</td>
         <a routerLink="/update/{{ret.stud_id}}"><button type="button" class="btn btn-primary" (click)="editStud(ret.stud_id)">Update</button></a>
         <button type="button" class="btn btn-danger" (click)="delStud(ret.stud_id)">Delete</button>
     </tr> 
+    </tbody>
 </table>
+<div *ngIf="paginationdisplay">
+    <pagination-controls id="listing_pagination" maxSize="5"
+     directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+</div>
 
-<div >
+<!-- <div >
   <table tableborder="1">
    
   </table>
-</div>
+</div> -->

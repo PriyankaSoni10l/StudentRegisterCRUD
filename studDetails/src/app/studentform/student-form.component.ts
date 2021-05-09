@@ -13,17 +13,7 @@ export class StudentFormComponent implements OnInit {
   studForm : FormGroup;
   result: any;
   data:any;
-  test = [
-    {
-      name: 'Jesse',
-      surname: 'alian'
-    },
-    {
-      name: 'Joe',
-      surname: 'Task'
-    }
-  ]
- 
+  
   constructor(private formbuilder : FormBuilder,
     private studentService: StudentServiceService, private ActiveRoute : ActivatedRoute) {
     this.studForm = new FormGroup({
@@ -37,7 +27,6 @@ export class StudentFormComponent implements OnInit {
   })}
   
   ngOnInit(): void {
-    console.log('im here')
    console.log(this.ActiveRoute.snapshot.params.id);
    this.studentService.getCurrentData(this.ActiveRoute.snapshot.params.id).subscribe((result) => {
     this.studForm =new FormGroup({
@@ -85,5 +74,15 @@ export class StudentFormComponent implements OnInit {
   //   state : new FormControl(result['state']),
   //   country :new FormControl(result['country']),
   //   passd : new FormControl(result['passd'])
+  // test = [
+  //   {
+  //     name: 'Jesse',
+  //     surname: 'alian'
+  //   },
+  //   {
+  //     name: 'Joe',
+  //     surname: 'Task'
+  //   }
+  // ]
   // })
   

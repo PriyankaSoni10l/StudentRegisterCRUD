@@ -9,19 +9,25 @@ import { StudentServiceService } from  '../student-service.service';
 export class StudentListComponent implements OnInit {
 
   constructor(private studentService: StudentServiceService ) { }
-  
+  paginationdisplay : boolean = false;
   fetch:any;
   stud_name : any;
+  key : string = 'id';
+  reverse :boolean = false;
+  totalRecords : String ; 
+  page: Number =1;
   //delete_id: string;
   ngOnInit() {
   }
 
   retriveStudentData(){
-    console.log("Retrive function called");
+    this.paginationdisplay = true;
+    // console.log("Retrive function called");
   this.studentService.retrive()
   .subscribe(data => {
     this.fetch = data;
-    
+    this.totalRecords = data.length;
+    console.log(this.totalRecords);
   })
 }
 
@@ -32,17 +38,14 @@ export class StudentListComponent implements OnInit {
 
   Search(){
     if(this.stud_name ==""){
-       console.log("entered searching if condition");
        this.retriveStudentData(); 
     }else{
-      console.log("entered searching else condition");
       this.fetch = this.fetch.filter(res => {
         return res.stud_name.toLocaleLowerCase().match(this.stud_name.toLocaleLowerCase());
       })
     }
   }
-   key : string = 'id';
-  reverse :boolean = false;
+     
   sort(key){
    this.key = key;
    this.reverse = !this.reverse;
